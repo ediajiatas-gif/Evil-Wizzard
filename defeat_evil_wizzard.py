@@ -8,12 +8,14 @@ class Character:
         self.max_health = health  
 
     def attack(self, opponent):
+        '''Method for attacking opponent'''
         opponent.health -= self.attack_power
         print(f"{self.name} attacks {opponent.name} for {self.attack_power} damage!")
         if opponent.health <= 0:
             print(f"{opponent.name} has been defeated!")
 
     def special_ability(self, opponent):
+        '''Special attack for attacking opponent'''
         special_damage = int(self.attack_power*1.5)
         opponent.health -= special_damage
         print(f"{self.name} activates special ability and attacks {opponent.name} for {special_damage} damage!")
@@ -21,6 +23,7 @@ class Character:
             print(f"{opponent.name} has been defeated!")
     
     def heal(self):
+        '''Heals player'''
         heal_amount = random.randint(10,20)
         self.health += heal_amount
         if self.health > self.max_health:
